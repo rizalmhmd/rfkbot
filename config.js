@@ -11,16 +11,17 @@
 // thank you to ALL Bot creator
 // and thanks you to who support my Bot
 
-gc1 = 'https://chat.whatsapp.com/Jxe836o7w9L9EhaYPkyZdV'
+gc1 = ''
 gc2 = ''
 gc3 = ''
 global.linkGC = ['https://chat.whats', 'https://chat.whatsap'] // ganti jadi group lu
-global.owner = ['6283822759168'] // Put your number here //owner eval
-global.kontak = ['6283822759168','0'] //Ketika ada yang ngetik #owner
+global.owner = ['6281387601389'] // Put your number here //owner eval
+global.kontak = ['6281333154367','6281387601389'] //Ketika ada yang ngetik #owner
 global.mods = ['0'] // Want some help?
-global.prems = ['6283822759168'] // Premium user has unlimited limit
+global.prems = ['6281333154367','6281392128956','6285747024007','6281281095214'] // Premium user has unlimited limit
 global.APIs = { // API Prefix
   // name: 'https://website'
+  amel : 'https://melcanz.com' ,
   nrtm: 'https://nurutomo.herokuapp.com', 
   xteam: 'https://api.xteam.xyz',
   zahir: 'https://zahirr-web.herokuapp.com',
@@ -32,35 +33,36 @@ global.APIs = { // API Prefix
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey' (apikey kalian)
+  'https://melcanz.com' : 'mAegnBTN' ,
   'https://api.xteam.xyz': 'Dawnfrostkey',
-  'https://api.lolhuman.xyz': 'RFK-Rey',
+  'https://api.lolhuman.xyz': 'GuraLol',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.me': 'apivinz',
-  'https://pencarikode.xyz': 'pais',
+  'https://pencarikode.xyz': 'APIKEY',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll'
 }
 
-lolkey = 'RFK-Rey'
+lolkey = 'GuraLol'
 zekskey = 'apivinz'
 xteamkey = 'Dawnfrostkey'
 //xteam        MIMINETBOT
 namaig = 'GAK ADA :)'
-namagithub = 'GAK ADA :)'
+namagithub = 'https://github.com/rizalmhmd'
 kasihcaption = `Nih kak`
-namakontak1 = 'Andrii Street Moonshine'
-namakontak2 = 'Andrii Street Moonshine'
+namakontak1 = 'Rizall'
+namakontak2 = 'Zall'
 
 //kasihcaption = `Nih Kak`
 
 // Sticker WM
-global.packname = 'By Andrii Street Moonshine' // ganti aja
-global.author = 'Andrii Street Moonshine' // ganti aja
+global.packname = 'Rizal gans ' // ganti aja
+global.author = ':v' // ganti aja
 
 //yyy
-bc = 'RFK' //ANDRIIxBOTZ Broadcast
-footer = '\n©ANDRIIxBOTZ'
-namabot = 'ANDRIIxBOTZ'
-namalu = 'Andrii Street Moonshine'
+bc = 'RFK' //ROZZxBOTZ Broadcast
+footer = '\n©ROZZxBOTZ'
+namabot = 'ROZZxBOTZ'
+namalu = 'Rizall'
 
 
 // 
@@ -73,7 +75,7 @@ global.eror = '_*Server Error*_'
 global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text='
 
 // tingkat kesulitan, semakin tinggi semakin susah
-global.multiplier = 36 // The higher, The harder levelup
+global.multiplier = 999999 // The higher, The harder levelup
 
 //*****************PEMBATAS*********************
 // JANGAN DI GANTI NTAR KLO GABISA JAN TANYA GW
