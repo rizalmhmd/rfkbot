@@ -38,7 +38,7 @@ global.APIKeys = { // APIKey Here
   'https://api.lolhuman.xyz': 'Deffbotz',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.me': 'apivinz',
-  'https://pencarikode.xyz': 'APIKEY',
+  'https://pencarikode.xyz': 'pais',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll'
 }
 
