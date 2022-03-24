@@ -3,23 +3,12 @@ let fetch = require('node-fetch')
 let handler = async(m, { conn, usedPrefix, args, command }) => {
     if(!args[0]) throw `Harap masukkan URL sebagai parameter!\n\nContoh: ${usedPrefix + command} https://vt.tiktok.com/ZSe5pocWX/`
     xa.Tiktok(args[0])
-if (!res.ok) throw await res.text()
-let json = await res.json()
-if (!json.status) throw json
-let { description, author, statistic, link } = json.result
-await conn.sendFile(m.chat, link, 'tt.mp4', `
-▶ ${statistic.playCount} Views
-❤ ${statistic.diggCount} Likes
-🔁 ${statistic.shareCount} Shares
-💬 ${statistic.commentCount} Comments
-- *By:* ${author.nickname} (${author.username})
-- *Desc:*
-${description}
-`.trim(), m)
+    .then(async data => { 
+        await conn.sendFile(m.chat, data.medias[2].url, 'tiktok.mp3', null, m)
+        await conn.sendFile(m.chat, data.medias[1].url, 'tiktok.mp4', watermark, m) 
+    })
 }
-
-handler.help = ['tiktok <url>']
+handler.command = /^(tiktok|tk|tkdl|td)$/i
 handler.tags = ['downloader']
-handler.command = /^tiktok$/i
-
+handler.help = ['tiktok']
 module.exports = handler
