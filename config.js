@@ -11,7 +11,8 @@
 // thank you to ALL Bot creator
 // and thanks you to who support my Bot
 
-
+gc1 = ''
+global.linkGC = ['https://chat.whats', 'https://chat.whatsap'] // ganti jadi group lu
 global.owner = ['6281387601389'] // Put your number here //owner eval
 global.kontak = ['6281333154367','6281387601389'] //Ketika ada yang ngetik #owner
 global.mods = ['0'] // Want some help?
