@@ -134,7 +134,7 @@ global.reloadHandler = function () {
 ╠➣HOBI :  
 ╠➣AGAMA : 
 ┗━━━━━━꧁۝☆ꦿ⃔¤۝꧂━━━━━━┛*'
-  conn.bye = 'Selamat tinggal @user!'
+  conn.bye = 'Semoga @user tenang di alam sana:>'
   conn.spromote = '@user sekarang admin!'
   conn.sdemote = '@user sekarang bukan admin!'
   conn.handler = handler.handler
