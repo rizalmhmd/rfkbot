@@ -124,7 +124,8 @@ global.reloadHandler = function () {
     conn.off('group-participants-update', conn.onParticipantsUpdate)
     conn.off('CB:action,,call', conn.onCall)
   }
-  conn.welcome = 'Hai, @user!\nＷｅｌｃｏｍｅ ｔｏ ｇｃ @subject\n\n   *KARTU INTRO*
+  conn.welcome = 'Hai, @user Ｗｅｌｃｏｍｅ ｔｏ ｇｃ @subject
+                  *KARTU INTRO*
 ┏━━━━━━꧁۝☆ꦿ⃔¤۝꧂━━━━━┓
 ╠➣NAMA :  
 ╠➣UMUR : 
