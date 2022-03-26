@@ -1,11 +1,12 @@
 let handler = async (m, { conn }) => {
-    conn.asahotak = conn.asahotak ? conn.asahotak : {}
+    conn.tekateki = conn.tekateki ? conn.tekateki : {}
     let id = m.chat
-    if (!(id in conn.asahotak)) throw false
-    let json = conn.asahotak[id][1]
-    let clue = json.jawaban.replace(/[AIUEOaiueo]/g, '_')
-    conn.reply(m.chat, '```' + clue + '```\nBalas soalnya, bukan pesan ini', conn.asahotak[id][0])
+    if (!(id in conn.tekateki)) throw false
+    let json = conn.tekateki[id][1]
+    let ans = json.jawaban.trim()
+    let clue = ans.replace(/[AIUEOaiueo]/g, '_')
+    conn.reply(m.chat, '```' + clue + '```\nBalas soalnya, bukan pesan ini', conn.tekateki[id][0])
 }
-handler.command = /^ao$/i
+handler.command = /^tete$/i
 handler.limit = true
 module.exports = handler
