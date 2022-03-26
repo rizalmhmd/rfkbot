@@ -18,7 +18,7 @@ Ketik ${usedPrefix}tete untuk bantuan
 Bonus: ${poin} XP
 `.trim()
     conn.tekateki[id] = [
-        await conn.sendButton(m.chat, caption, '© stikerin', 'Bantuan', `.tete`, m),
+        await conn.sendButton(m.chat, caption, '© ROZZxBOTZ', 'Bantuan', `.tete`, m),
         json, poin,
         setTimeout(() => {
             if (conn.tekateki[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, '© ROZZxBOTZ', 'Teka Teki', `.tekateki`, conn.tekateki[id][0])
