@@ -15,7 +15,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     if (!json) throw json
     let caption = `
 Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}benderaapa untuk bantuan
+Ketik ${usedPrefix}tbhint
 Bonus: ${poin} XP
 `.trim()
     conn.tebakbendera[id] = [
