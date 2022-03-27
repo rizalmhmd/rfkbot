@@ -12,10 +12,10 @@ let handler  = async (m, { conn, usedPrefix }) => {
     let res = await fetch('https://api.xteam.xyz/game/tebakbendera?APIKEY=9db5a5373433c015')
     let json = await res.json()
     conn.tebakbendera[id] = [
-      await conn.reply(m.chat, `Bendera: *${json.result.result.bendera}*\nTimeout: *${(timeout / 1000).toFixed(2)} detik*\nKetik *${usedPrefix}tbhint* untuk hint\nBonus: ${poin} XP`, m),
+      await conn.reply(m.chat, `Bendera: *${res.bendera}*\nTimeout: *${(timeout / 1000).toFixed(2)} detik*\nKetik *${usedPrefix}tbhint* untuk hint\nBonus: ${poin} XP`, m),
       json, poin,
       setTimeout(() => {
-        if (conn.tebakbendera[id]) conn.reply(m.chat, `Waktu habis!\n*${json.result.result.jawaban}*`, conn.tebakbendera[id][0])
+        if (conn.tebakbendera[id]) conn.reply(m.chat, `Waktu habis!\n*${res.jawaban}*`, conn.tebakbendera[id][0])
         delete conn.tebakbendera[id]
       }, timeout)
     ]
