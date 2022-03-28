@@ -4,16 +4,16 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw `uhm.. judul nya apa?\n\ncontoh:\n${usedPrefix + command} akad`
     if (isUrl(text)) throw `uhm.. judul kak bukan pake url\n\ncontoh:\n${usedPrefix + command} akad`
 
-    let res = await fetch(global.API('xteam', '/dl/jooxdl', { search: text }, 'apikey'))
+    let res = await fetch(global.API('lol', '/api/jooxplay', { query: text }, 'apikey'))
     if (!res.ok) throw await `${res.status} ${res.statusText}`
     let json = await res.json()
     if (!json.status) throw json
     let { judul, artist, album, img_url, mp3_url, filesize, duration } = json.result
     let pesan = `
-Judul: ${songname}
-Artis: ${singers}
+Judul: ${song}
+Artis: ${singer}
 Album: ${album}
-Ukuran File: ${filesize}
+Ukuran File: ${size}
 Durasi: ${duration}
 © ROZZxBOTZ
     `.trim()
