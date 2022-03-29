@@ -1,5 +1,6 @@
 let levelling = require('../lib/levelling')
 let { MessageType } = require('@adiwajshing/baileys')
+let fs = require('fs')
 let path = require('path')
 let fetch = require('node-fetch')
 let moment = require('moment-timezone')
