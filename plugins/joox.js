@@ -4,16 +4,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw `uhm.. judul nya apa?\n\ncontoh:\n${usedPrefix + command} akad`
     if (isUrl(text)) throw `uhm.. judul kak bukan pake url\n\ncontoh:\n${usedPrefix + command} akad`
 
-    let res = await fetch(global.API('zeks', '/api/joox', 'apikey', { query: text}))
-    if (!res.ok) throw await `${res.status} ${res.statusText}`
-    let json = await res.json()
-    if (!json.status) throw json
-    let { judul, artist, album, thumb, audio, size } = json.result
-    let pesan = `
-Judul: ${judul}
-Artis: ${artist}
-Album: ${album}
-Ukuran File: ${size}
+                let anu = await fetch(global.API('zenz', '/downloader/joox', { query: text }, 'apikey'))
+                let msg = await hisoka.sendImage(m.chat, anu.result.img, `⭔ Title : ${anu.result.lagu}\n⭔ Album : ${anu.result.album}\n⭔ Singer : ${anu.result.penyanyi}\n⭔ Publish : ${anu.result.publish}\n⭔ Lirik :\n${anu.result.lirik.result}`, m)
+                hisoka.sendMessage(m.chat, { audio: { url: anu.result.mp4aLink }, mimetype: 'audio/mpeg', fileName: anu.result.lagu+'.m4a' }, { quoted: msg })
 
 © ROZZxBOTZ
     `.trim()
