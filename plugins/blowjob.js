@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn, usedPrefix, command }) => {
 	if (!db.data.chats[m.chat].nsfw && m.isGroup) throw global.nsfw
-   heum = await fetch(`https://api.lolhuman.xyz/api/random2/bj?apikey=Dawnfrostkey`)
+   heum = await fetch(`https://api.lolhuman.xyz/api/random2/bj?apikey=Deffbotz`)
     json = await heum.buffer()
    conn.sendButtonImg(m.chat, json, '🔥🥵🥵', '©mikebot', 'NEXT', `${usedPrefix + command}`, m)
 }
