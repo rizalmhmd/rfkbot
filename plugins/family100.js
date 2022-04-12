@@ -1,14 +1,16 @@
 let fetch = require('node-fetch')
-let winScore = 2500
+let winScore = 500
 async function handler(m) {
     this.game = this.game ? this.game : {}
     let id = 'family100_' + m.chat
     if (id in this.game) {
-        this.sendButton(m.chat, 'Masih ada kuis yang belum terjawab di chat ini', footer, 'Nyerah', 'nyerah', { quoted: this.game[id].msg })
+        this.reply(m.chat, 'Masih ada kuis yang belum terjawab di chat ini', this.game[id].msg)
         throw false
     }
-    let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/family100.json')).json()
-    let json = src[Math.floor(Math.random() * src.length)]
+    let res = await fetch(global.API('xteam', '/game/family100', {}, 'APIKEY'))
+    if (!res.ok) throw await res.text()
+    let json = await res.json()
+    if (!json.status) throw json
     let caption = `
 *Soal:* ${json.soal}
 
@@ -20,7 +22,7 @@ Terdapat *${json.jawaban.length}* jawaban${json.jawaban.find(v => v.includes(' '
     `.trim()
     this.game[id] = {
         id,
-        msg: await this.sendButton(m.chat, caption, footer, 'Nyerah', 'nyerah', m),
+        msg: await m.reply(caption),
         ...json,
         terjawab: Array.from(json.jawaban, () => false),
         winScore,
