@@ -1,18 +1,21 @@
-let fetch = require('node-fetch')
-
-let handler = async (m, { conn, command, text, usedPrefix }) => {
-    if (!text) throw `uhm.. urlnya mana?\n\npenggunaan:\n${usedPrefix + command} url\ncontoh:\n${usedPrefix + command} http://www.mediafire.com/file/js0gr2nozcmk9yg/example.txt/file`
-    let res = await fetch(API('melcanz', '/mediafire', { url: text }, 'apikey'))
-    if (!res.ok) throw eror
-    let json = await res.json()
-    if (!json.status) throw json
-    await m.reply(wait)
-    await conn.sendFile(m.chat, json.result.link, json.result.nama, wm, m)
+const { mediafireDl } = require('../lib/mediafire.js')
+let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
+if (!text) return m.reply(`Kirim perintah ${usedPrefix + command} *link mediafire*`)
+if (!args[0].includes('mediafire.com')) return m.reply(error.linkmf)
+let mdjon = args.join(' ')
+res = await mediafireDl(mdjon)
+result = `「 *MEDIAFIRE DOWNLOAD* 」
+*Data Berhasil Didapatkan!*
+🆔 Nama : ${res[0].nama}
+📊 Ukuran : ${res[0].size}
+💬 Link : ${res[0].link}
+_Tunggu Proses Upload Media_`
+m.reply(result)
+//await sleep(100)
+conn.sendFile(m.chat, res[0].link, res[0].nama, null, m, false, {asDocument:true, mimetype:res[0].mime})
 }
-handler.help = ['mediafire'].map(v => v + ' <url>')
+handler.help = ['mediafire <url>']
 handler.tags = ['downloader']
-handler.command = /^(mediafire|mf)$/i
-
-handler.limit = false
+handler.command = ['mediafire']
 
 module.exports = handler
