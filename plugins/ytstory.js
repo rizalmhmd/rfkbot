@@ -2,7 +2,7 @@ let fetch = require('node-fetch')
 
 let handler = async (m, { conn, command, text, usedPrefix }) => {
     if (!text) throw `uhm.. urlnya mana?\n\npenggunaan:\n${usedPrefix + command} url\ncontoh:\n${usedPrefix + command} https://youtube.com/shorts/lBQb1rvY9ao`
-    let res = await fetch(API('lol', '/api/ytreels', apikey, {url : text},'))
+    let res = await fetch(`https://api.lolhuman.xyz/api/tiktok?apikey=${lolkey}&url=${args[0]}`)
     if (!res.ok) throw eror
     let json = await res.json()
     if (!json.status) throw json
