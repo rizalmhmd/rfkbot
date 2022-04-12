@@ -10,7 +10,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
     await conn.sendFile(m.chat, json.result.link, json.result.nama, wm, m)
 }
 handler.help = ['ytstory'].map(v => v + ' <url>')
-handler.tags = ['download']
+handler.tags = ['downloader']
 handler.command = /^(ytstory|yts2)$/i
 
 handler.limit = false
