@@ -1,6 +1,5 @@
 const similarity = require('similarity')
-const threshold = 0.72
-
+const threshold = 0.72 // semakin tinggi nilai, semakin mirip
 module.exports = {
     async before(m) {
         this.game = this.game ? this.game : {}
@@ -12,7 +11,7 @@ module.exports = {
         if (!isSurrender) {
             let index = room.jawaban.findIndex(v => v.toLowerCase().replace(/[^\w\s\-]+/, '') === text)
             if (index < 0) {
-                if (Math.max(...room.jawaban.filter((_, index) => !room.terjawab[index]).map(jawaban => similarity(jawaban, text))) >= threshold) m.reply(dikit)
+                if (Math.max(...room.jawaban.filter((_, index) => !room.terjawab[index]).map(jawaban => similarity(jawaban, text))) >= threshold) m.reply('Dikit lagi!')
                 return !0
             }
             if (room.terjawab[index]) return !0
@@ -22,19 +21,23 @@ module.exports = {
         }
         let isWin = room.terjawab.length === room.terjawab.filter(v => v).length
         let caption = `
-*soal:* ${room.soal}
+*Soal:* ${room.soal}
 
-terdapat *${room.jawaban.length}* jawaban${room.jawaban.find(v => v.includes(' ')) ? `
+Terdapat *${room.jawaban.length}* jawaban${room.jawaban.find(v => v.includes(' ')) ? `
 (beberapa jawaban terdapat spasi)
 `: ''}
 ${isWin ? `*SEMUA JAWABAN TERJAWAB*` : isSurrender ? '*MENYERAH!*' : ''}
 ${Array.from(room.jawaban, (jawaban, index) => {
-            return isSurrender || room.terjawab[index] ? `(${index + 1}) ${jawaban} ${room.terjawab[index] ? '@' + room.terjawab[index].split`@`[0] : ''}`.trim() : false
+            return isSurrender || room.terjawab[index] ? `(${index + 1}) ${jawaban} ${room.terjawab[index] ? '@' + room.terjawab[index].split('@')[0] : ''}`.trim() : false
         }).filter(v => v).join('\n')}
 
-${isSurrender ? '' : ``}
+${isSurrender ? '' : `+${room.winScore} XP tiap jawaban benar`}
     `.trim()
-        await this.sendButton(m.chat, caption, wm, `${isWin || isSurrender ? 'lagi' : 'nyerah'}`, `${isWin || isSurrender ? '.family100' : 'nyerah'}`, m).then(msg => {
+        await this.sendButton(m.chat, caption, footer, `${isWin ? 'Family 100' : isSurrender ? 'Family 100' : 'Nyerah'}`, `${isWin ? ',family100' : isSurrender ? ',family100' : 'nyerah'}`, {
+            contextInfo: {
+                mentionedJid: this.parseMention(caption)
+            }
+        }).then(msg => {
             return this.game[id].msg = msg
         }).catch(_ => _)
         if (isWin || isSurrender) delete this.game[id]
