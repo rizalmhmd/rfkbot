@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 
 let timeout = 120000
-let poin = 5000
+let poin = 4999
 let src
 let handler = async (m, { conn, usedPrefix }) => {
     conn.tebakbendera = conn.tebakbendera ? conn.tebakbendera : {}
@@ -19,10 +19,10 @@ Ketik ${usedPrefix}benderaapa untuk bantuan
 Bonus: ${poin} XP
 `.trim()
     conn.tebakbendera[id] = [
-         await conn.sendButtonImg(m.chat, await (await fetch(json.img)).buffer(), caption, footer, 'Bantuan', '.benderaapa', m)
+        await conn.sendFile(m.chat, json.img, 'img.jpg', caption, m),
         json, poin,
         setTimeout(() => {
-            if (conn.tebakbendera[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, footer, 'Tebak Bendera', '.tebakbendera', conn.tebakbendera[id][0])
+            if (conn.tebakbendera[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.name}*`, conn.tebakbendera[id][0])
             delete conn.tebakbendera[id]
         }, timeout)
     ]
