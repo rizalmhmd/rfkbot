@@ -1,23 +1,13 @@
 let fetch = require('node-fetch')
-     let handler  = async (m, { conn, usedPrefix, command }) => {
-m.reply(wait)
-heum = await fetch(`https://api.lolhuman.xyz/api/random/loli?apikey=${lolkey}`)
-    json = await heum.buffer()
-   conn.sendButtonImg(m.chat, json, kasihcaption, footer, 'Next', `${usedPrefix + command}`, m, { contextInfo: { forwardingScore: 999, isForwarded: true }})
 
+let handler = async (m, { conn, text }) => {
+let res = await fetch('https://raw.githubusercontent.com/Xmell91/loli/master/loli.json')
+if (!res.ok) throw await `${res.status} ${res.statusText}`;
+let json = await res.json();
+let url = json[Math.floor(Math.random() * json.length)]
+await conn.sendButtonImg(m.chat, await (await fetch(url)).buffer(), 'Random Loli', 'ROZZxBOTZ', 'NEXT', '/loli', m)
 }
-handler.help = ['loli']
+handler.command = /^(loli)$/i
 handler.tags = ['anime']
-handler.command = /^loli$/i
-handler.owner = false
-handler.mods = false
-handler.premium = false
-handler.group = false
-handler.private = false
-
-handler.admin = false
-handler.botAdmin = false
-
-handler.fail = null
-
+handler.help = ['loli']
 module.exports = handler
