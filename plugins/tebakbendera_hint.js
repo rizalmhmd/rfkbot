@@ -1,12 +1,10 @@
 let handler = async (m, { conn }) => {
-    conn.tebakbendera = conn.tebakbendera ? conn.tebakbendera : {}
+    conn.tebakgambar = conn.tebakbendera ? conn.tebakbendera : {}
     let id = m.chat
     if (!(id in conn.tebakbendera)) throw false
     let json = conn.tebakbendera[id][1]
-    let nya = json.result.jawaban
-    let nyanya = nya.replace(/[bcdfghjklmnpqrstvwxyz]/g, '_')
-    m.reply('```' + nyanya + '```')
+    conn.reply(m.chat, '```' + json.jawaban.replace(/[AIUEOaiueo]/g, '_') + '```\nBalas gambarnya, bukan pesan ini', conn.tebakbendera[id][0])
 }
-handler.command = /^tbhint$/i
+handler.command = /^benderaapa$/i
 
 module.exports = handler
