@@ -5,10 +5,10 @@ let { spawn } = require('child_process')
 let fetch = require('node-fetch')
 let handler = async (m, { text }) => {
   let lang = 'id'
-  let res = await fetch(global.API('https://api.simsimi.net', '/v2/', { text: encodeURIComponent(text), lc: "id" }, ''))
+  let res = await fetch(global.API('xteam', '/simsimi', { kata: text }, 'APIKEY'))
   let json = await res.json()
-  //if (json.success) m.reply(json.success)
-  let y = `${json.success}`
+  //if (json.jawaban) m.reply(json.jawaban)
+  let y = `${json.jawaban}`
     let but
   try { but = await tts(y, lang) }
   catch (e) {
