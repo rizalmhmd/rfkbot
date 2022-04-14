@@ -4,7 +4,7 @@ let handler = async (m, { conn, command }) => {
     conn.send3Button(m.chat, 'Truth or Dare', footer, 'Truth', '#truth', 'Dare', '#dare', 'RANDOM', `${pickRandom(['#dare', '#truth'])}`, m, { contextInfo: { forwardingScore: 999, isForwarded: true }})
   }
   if (/^truth$/i.test(command)) {
-    let res = await fetch(global.API('pencarikode', '/api/truthid', {}, 'apikey'))
+    let res = await fetch(global.API('https://botstyle-api.herokuapp.com/api/truth?apikey=KegAlEJC'))
     if (!res.ok) throw eror
     let json = await res.json()
     if (json.message == "") throw json
@@ -13,7 +13,7 @@ let handler = async (m, { conn, command }) => {
 
   }
   if (/^dare$/i.test(command)) {
-    let res = await fetch(global.API('pencarikode', '/api/dareid', {}, 'apikey'))
+    let res = await fetch(global.API('https://botstyle-api.herokuapp.com/api/dare?apikey=KegAlEJC'))
     if (!res.ok) throw eror
     let json = await res.json()
     if (json.message == "") throw json
