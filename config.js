@@ -57,6 +57,7 @@ namaig = 'GAK ADA :)'
 namagithub = 'https://github.com/rizalmhmd'
 kasihcaption = `Nih kak`
 namakontak1 = 'Zall'
+namakontak2 = ''
 
 //kasihcaption = `Nih Kak`
 
