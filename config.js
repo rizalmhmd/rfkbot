@@ -15,8 +15,8 @@ gc1 = ''
 gc2 = ''
 gc3 = ''
 global.linkGC = ['https://chat.whats', 'https://chat.whatsap'] // ganti jadi group lu
-global.owner = ['6281387601389','6281226278215'] // Put your number here //owner eval
-global.kontak = ['6281226278215','6281387601389'] //Ketika ada yang ngetik #owner
+global.owner = ['6281387601389'] // Put your number here //owner eval
+global.kontak = ['6281387601389'] //Ketika ada yang ngetik #owner
 global.mods = ['0'] // Want some help?
 global.prems = ['6281333154367','6281392128956','6285747024007','6281281095214','6281226278215','62895385025453'] // Premium user has unlimited limit
 global.APIs = { // API Prefix
@@ -56,8 +56,7 @@ xteamkey = '9db5a5373433c015'
 namaig = 'GAK ADA :)'
 namagithub = 'https://github.com/rizalmhmd'
 kasihcaption = `Nih kak`
-namakontak1 = 'Fauqi'
-namakontak2 = 'Zall'
+namakontak1 = 'Zall'
 
 //kasihcaption = `Nih Kak`
 
